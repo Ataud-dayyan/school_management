@@ -28,11 +28,14 @@ adminRouter.post("/register", registerAdmCtrl);
 adminRouter.post("/login", loginAdminCtrl);
 
 //get all
-adminRouter.get("/", isLogin, advancedResults(Admin), getAdminsCtrl);
+adminRouter.get("/", advancedResults(Admin), getAdminsCtrl);
 
 //Single
 adminRouter.get(
-    "/profile", getAdminProfileCtrl
+    "/profile",
+    isAuth(Admin), 
+    roleRestriction("admin"), 
+    getAdminProfileCtrl
 );
 
 //update

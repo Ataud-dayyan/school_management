@@ -32,10 +32,7 @@ adminRouter.get("/", isLogin, advancedResults(Admin), getAdminsCtrl);
 
 //Single
 adminRouter.get(
-    "/profile",
-    isAuth(Admin), 
-    roleRestriction("admin"), 
-    getAdminProfileCtrl
+    "/profile", getAdminProfileCtrl
 );
 
 //update
